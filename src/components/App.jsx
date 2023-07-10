@@ -36,7 +36,7 @@ export const App = () => {
       try {
         setIsShowLoader(true);
         const fetchImages = await fetchImagesWithQuery(query, page);
-        setImages([...images, ...fetchImages.response]);
+        setImages(prevImages => [...prevImages, ...fetchImages.response]);
         setIsShowLoadMore(true);
         if (
           Math.ceil(fetchImages.totalHits / 12) / page === 1 ||
