@@ -34,8 +34,8 @@ export const SearchFormButton = styled.button`
   width: 48px;
   height: 48px;
   border: 0;
-  background-image: url('https://img.uxwing.com/wp-content/themes/uxwing/download/user-interface/search-icon.svg');
-  background-size: 40%;
+  background-image: url('https://www.svgrepo.com/show/520926/search-5.svg');
+  background-size: 80%;
   background-repeat: no-repeat;
   background-position: center;
   opacity: 0.6;
