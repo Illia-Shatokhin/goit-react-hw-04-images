@@ -72,8 +72,13 @@ export const App = () => {
 
   const escListener = e => {
     if (e.key === 'Escape') {
-      setIsShowModal(false);
-      setLargeImage('');
+      closeModal();
+    }
+  };
+
+  const overlayClick = e => {
+    if (e.target === e.currentTarget) {
+      closeModal();
     }
   };
 
@@ -85,11 +90,9 @@ export const App = () => {
   };
 
   const closeModal = e => {
-    if (e.target === e.currentTarget) {
-      setIsShowModal(false);
-      setLargeImage('');
-      window.removeEventListener('keydown', escListener);
-    }
+    setIsShowModal(false);
+    setLargeImage('');
+    window.removeEventListener('keydown', escListener);
   };
 
   return (
@@ -98,7 +101,9 @@ export const App = () => {
       <ImageGallery images={images} openModal={openModal} />
       {isShowLoader && <Loader />}
       {isShowLoadMore && <Button onClick={onClick} />}
-      {isShowModal && <Modal closeModal={closeModal} largeImage={largeImage} />}
+      {isShowModal && (
+        <Modal overlayClick={overlayClick} largeImage={largeImage} />
+      )}
     </AppCss>
   );
 };

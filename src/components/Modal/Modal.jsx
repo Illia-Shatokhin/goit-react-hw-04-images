@@ -1,9 +1,9 @@
 import { ModalWindow, ModalWindowImg, Overlay } from './Modal.styled';
 import PropTypes from 'prop-types';
 
-export const Modal = ({ largeImage, closeModal }) => {
+export const Modal = ({ largeImage, overlayClick }) => {
   return (
-    <Overlay onClick={closeModal}>
+    <Overlay onClick={overlayClick}>
       <ModalWindow>
         <ModalWindowImg src={largeImage} alt={largeImage} />
       </ModalWindow>
@@ -13,5 +13,5 @@ export const Modal = ({ largeImage, closeModal }) => {
 
 Modal.propTypes = {
   largeImage: PropTypes.string.isRequired,
-  closeModal: PropTypes.func.isRequired,
+  overlayClick: PropTypes.func.isRequired,
 };
